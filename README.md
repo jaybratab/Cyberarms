@@ -15,6 +15,10 @@ If you want the installer of the program (compiled version), then go here:
 
 https://github.com/EFTEC/Cyberarms/blob/master/Compiled/cyberarms.intrusiondetection.setup.x64_2.2.0.zip
 
+Installer for compiled binery of the forked version is available here:
+
+https://github.com/jaybratab/Cyberarms/blob/0a0f8f37c9875be927e701085cc04dd69ce7962a/Cyberarms-Release-2.2.0.zip
+
 
 
 
