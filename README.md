@@ -1,5 +1,5 @@
 # Cyberarms
-IDDS is a free and open source intrusion detection and prevention system for Windows Server 2008 R2 and later. 
+IDDS is a free and open source intrusion detection and prevention system for Windows Server 2008 R2 and later. In this fork intruder IP blocking method has been shifted from Windows Defender Firewall based blocking to routing table based Blackhole Routing. Also this version is compatible with Windows Server 2022 and 2025.
 
 # Note
 
