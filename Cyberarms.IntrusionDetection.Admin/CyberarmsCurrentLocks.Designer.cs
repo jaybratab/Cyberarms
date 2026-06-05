@@ -1,4 +1,4 @@
-﻿namespace Cyberarms.IntrusionDetection.Admin {
+namespace Cyberarms.IntrusionDetection.Admin {
     partial class CyberarmsCurrentLocks {
         /// <summary> 
         /// Required designer variable.
@@ -209,7 +209,7 @@
             this.dataGridViewLocks.RowHeadersVisible = false;
             this.dataGridViewLocks.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewLocks.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.dataGridViewLocks.RowTemplate.ReadOnly = true;
+            this.dataGridViewLocks.RowTemplate.ReadOnly = false;
             this.dataGridViewLocks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewLocks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewLocks.Size = new System.Drawing.Size(802, 297);

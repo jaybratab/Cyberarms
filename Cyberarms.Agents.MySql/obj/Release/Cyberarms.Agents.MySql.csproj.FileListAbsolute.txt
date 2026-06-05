@@ -1,0 +1,15 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\Cyberarms.Agents.MySql.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\Cyberarms.Agents.MySql.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\obj\Release\Cyberarms.Agents.MySql.Resource.resources
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\obj\Release\Cyberarms.Agents.MySql.csproj.GenerateResource.Cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\obj\Release\Cyberarms.Agents.MySql.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\obj\Release\Cyberarms.Agents.MySql.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MySql\bin\Release\normnfkd.nlp

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -105,32 +105,39 @@ namespace Cyberarms.IntrusionDetection.Admin {
                     _panelSecurityLog = new CyberarmsSecurityLog();
                     _panelSecurityLog.Dock = DockStyle.Fill;
                     panelContent.Controls.Add(_panelSecurityLog);
-                    IsUpdating = true;
-                    
-                    IDataReader rdr = IntrusionLog.ReadIntervalGrouped(new TimeSpan(24, 0, 0));
-                    int maxLogId = LastLogId;
-                    while (rdr.Read()) {
-                        int action = int.Parse(rdr["Action"].ToString());
-                        string agentId = Shared.Db.DbValueConverter.ToString(rdr["AgentId"]);
-                        PanelSecurityLog.FillLogEntry(int.Parse(rdr["MaxId"].ToString()), 
-                                int.Parse(rdr["Action"].ToString()), 
-                                agentId, 
-                                IntrusionLog.GetStatusIcon(action), 
-                                IntrusionLog.GetStatusClass(action), DateTime.Parse(rdr["LatestEvent"].ToString()), 
-                                rdr["ClientIP"].ToString(), 
-                                GetLogMessage(agentId,action),
-                                int.Parse(rdr["NumberOfEvents"].ToString()));
-                        if (Convert.ToInt32(rdr["MaxId"]) > maxLogId) maxLogId = Convert.ToInt32(rdr["MaxId"]);
-                    } 
-                    if(maxLogId==0) {
-                        LastLogId = IntrusionLog.GetLastLogId();
+                    try {
+                        IsUpdating = true;
+                        using (IDataReader rdr = IntrusionLog.ReadIntervalGrouped(new TimeSpan(24, 0, 0))) {
+                            int maxLogId = LastLogId;
+                            while (rdr.Read()) {
+                                int action = int.Parse(rdr["Action"].ToString());
+                                string agentId = Shared.Db.DbValueConverter.ToString(rdr["AgentId"]);
+                                PanelSecurityLog.FillLogEntry(int.Parse(rdr["MaxId"].ToString()), 
+                                        int.Parse(rdr["Action"].ToString()), 
+                                        agentId, 
+                                        IntrusionLog.GetStatusIcon(action), 
+                                        IntrusionLog.GetStatusClass(action), Shared.Db.DbValueConverter.ToDateTime(rdr["LatestEvent"]), 
+                                        rdr["ClientIP"].ToString(), 
+                                        GetLogMessage(agentId,action),
+                                        int.Parse(rdr["NumberOfEvents"].ToString()));
+                                if (Convert.ToInt32(rdr["MaxId"]) > maxLogId) maxLogId = Convert.ToInt32(rdr["MaxId"]);
+                            } 
+                            if(maxLogId==0) {
+                                LastLogId = IntrusionLog.GetLastLogId();
+                            }
+                            foreach (SecurityAgent agent in SecurityAgents.Instance) {
+                                _panelSecurityLog.AddAgent(agent);
+                            }
+                            rdr.Close();
+                            if (maxLogId > LastLogId) LastLogId = maxLogId;
+                        }
+                    } catch (Exception ex) {
+                        try {
+                            WriteEntry("Error loading Security Log: " + ex.ToString(), EventLogEntryType.Error, 9999, 1);
+                        } catch { }
+                    } finally {
+                        IsUpdating = false;
                     }
-                    foreach (SecurityAgent agent in SecurityAgents.Instance) {
-                        _panelSecurityLog.AddAgent(agent);
-                    }
-                    rdr.Close();
-                    if (maxLogId > LastLogId) LastLogId = maxLogId;
-                    IsUpdating = false;
                 }
                 return _panelSecurityLog;
             }
@@ -225,64 +232,79 @@ namespace Cyberarms.IntrusionDetection.Admin {
         void logReader_Tick(object sender, EventArgs e) {
             DateTime metering = DateTime.Now;
             if (!IsUpdating && Database.Instance.IsConfigured) {
-                IsUpdating = true;
-                if (CurrentMenu == labelMenuSecurityLog && IntrusionLog.HasUpdates(LastLogId)) {
-                    IDataReader rdr = IntrusionLog.ReadDifferential(LastLogId);
-                    int maxLogId = LastLogId;
-                    while (rdr.Read()) {
-                        int action = int.Parse(rdr["Action"].ToString());
-                        string agentId = Shared.Db.DbValueConverter.ToString(rdr["AgentId"]);
-                        PanelSecurityLog.AddLogEntry(int.Parse(rdr["id"].ToString()), action, 
-                            agentId, 
-                            IntrusionLog.GetStatusIcon(action), 
-                            IntrusionLog.GetStatusClass(action), DateTime.Parse(rdr["IncidentTime"].ToString()), rdr["ClientIP"].ToString(), 
-                            GetLogMessage(agentId,action));
-                        if (Convert.ToInt32(rdr["Id"]) > maxLogId) maxLogId = Convert.ToInt32(rdr["Id"]);
-                    }
-                    rdr.Close();
-                    rdr.Dispose();
-                    if (maxLogId > LastLogId) LastLogId = maxLogId;
-                }
-                
-                if (CurrentMenu == labelMenuCurrentLocks && Locks.HasUpdates(LastLockUpdate)) {
-                    LastLockUpdate = DateTime.Now;
-                    PanelCurrentLocks.Clear();
-                    IDataReader locksReader = Locks.ReadLocks(); 
-                    while (locksReader.Read()) {
-                        DateTime lockDate;
-                        DateTime unlockDate;
-                        DateTime.TryParse(locksReader["LockDate"].ToString(), out lockDate);
-                        DateTime.TryParse(locksReader["UnlockDate"].ToString(), out unlockDate);
-                        PanelCurrentLocks.Add(int.Parse(locksReader["LockId"].ToString()), global::Cyberarms.IntrusionDetection.Admin.Properties.Resources.logIcon_softLock,
-                            LockStatusAdapter.GetLockStatusName(int.Parse(locksReader["Status"].ToString())), locksReader["ClientIp"].ToString(), 
-                            locksReader["DisplayName"].ToString(),
-                            lockDate, unlockDate, IntrusionDetection.Shared.Db.DbValueConverter.ToInt(locksReader["Status"]));
-                    }
-                    locksReader.Close();
-                    locksReader.Dispose();
+                try {
+                    IsUpdating = true;
                     
-                }
-                if (CurrentMenu == labelMenuHome) {
-                    Dashboard.SetUnsuccessfulLogins(Locks.ReadUnsuccessfulLoginAttempts(DateTime.Now.AddDays(-30)));
-                    foreach(SecurityAgent agent in SecurityAgents.Instance) {
-                        agent.UpdateStatistics();
+                    // Force SQLite to refresh its page cache by reopening the connection
+                    try {
+                        Database.Instance.CloseConnection();
+                        Database.Instance.OpenConnection();
+                    } catch { }
+
+                    if (CurrentMenu == labelMenuSecurityLog && IntrusionLog.HasUpdates(LastLogId)) {
+                        using (IDataReader rdr = IntrusionLog.ReadDifferential(LastLogId)) {
+                            int maxLogId = LastLogId;
+                            while (rdr.Read()) {
+                                int action = int.Parse(rdr["Action"].ToString());
+                                string agentId = Shared.Db.DbValueConverter.ToString(rdr["AgentId"]);
+                                PanelSecurityLog.AddLogEntry(int.Parse(rdr["id"].ToString()), action, 
+                                    agentId, 
+                                    IntrusionLog.GetStatusIcon(action), 
+                                    IntrusionLog.GetStatusClass(action), Shared.Db.DbValueConverter.ToDateTime(rdr["IncidentTime"]), rdr["ClientIP"].ToString(), 
+                                    GetLogMessage(agentId,action));
+                                if (Convert.ToInt32(rdr["Id"]) > maxLogId) maxLogId = Convert.ToInt32(rdr["Id"]);
+                            }
+                            rdr.Close();
+                            if (maxLogId > LastLogId) LastLogId = maxLogId;
+                        }
                     }
-                }
-                if (CurrentMenu == labelMenuHome || CurrentMenu == labelMenuCurrentLocks) {
-                    int softLocks = Locks.ReadCurrentSoftLocks();
-                    int hardLocks = Locks.ReadCurrentHardLocks();
-                    PanelCurrentLocks.SetSoftLocks(softLocks);
-                    PanelCurrentLocks.SetHardLocks(hardLocks);
-                    Dashboard.SetHardLocks(hardLocks);
-                    Dashboard.SetSoftLocks(softLocks);
                     
-                }
-                if (!IsInitialized || (CurrentMenu == labelMenuHome || CurrentMenu == labelMenuSecurityLog)) {
-                // ?? 
+                    if (CurrentMenu == labelMenuCurrentLocks) {
+                        List<LockInfo> dbLocks = new List<LockInfo>();
+                        using (IDataReader locksReader = Locks.ReadLocks()) {
+                            while (locksReader.Read()) {
+                                DateTime lockDate;
+                                DateTime unlockDate;
+                                DateTime.TryParse(Shared.Db.DbValueConverter.ToString(locksReader["LockDate"]), out lockDate);
+                                DateTime.TryParse(Shared.Db.DbValueConverter.ToString(locksReader["UnlockDate"]), out unlockDate);
+                                dbLocks.Add(new LockInfo {
+                                    Id = IntrusionDetection.Shared.Db.DbValueConverter.ToInt(locksReader["LockId"]),
+                                    StatusName = LockStatusAdapter.GetLockStatusName(IntrusionDetection.Shared.Db.DbValueConverter.ToInt(locksReader["Status"])),
+                                    ClientIp = Shared.Db.DbValueConverter.ToString(locksReader["ClientIp"]),
+                                    DisplayName = Shared.Db.DbValueConverter.ToString(locksReader["DisplayName"]),
+                                    LockDate = lockDate,
+                                    UnlockDate = unlockDate,
+                                    Status = IntrusionDetection.Shared.Db.DbValueConverter.ToInt(locksReader["Status"])
+                                });
+                            }
+                            locksReader.Close();
+                        }
+                        PanelCurrentLocks.UpdateLocksList(dbLocks);
+                    }
+                    if (CurrentMenu == labelMenuHome) {
+                        Dashboard.SetUnsuccessfulLogins(Locks.ReadUnsuccessfulLoginAttempts(DateTime.Now.AddDays(-30)));
+                        foreach(SecurityAgent agent in SecurityAgents.Instance) {
+                            agent.UpdateStatistics();
+                        }
+                    }
+                    if (CurrentMenu == labelMenuHome || CurrentMenu == labelMenuCurrentLocks) {
+                        int softLocks = Locks.ReadCurrentSoftLocks();
+                        int hardLocks = Locks.ReadCurrentHardLocks();
+                        PanelCurrentLocks.SetSoftLocks(softLocks);
+                        PanelCurrentLocks.SetHardLocks(hardLocks);
+                        Dashboard.SetHardLocks(hardLocks);
+                        Dashboard.SetSoftLocks(softLocks);
+                    }
+                } catch (Exception ex) {
+                    try {
+                        WriteEntry("Error in logReader_Tick: " + ex.ToString(), EventLogEntryType.Error, 9999, 1);
+                    } catch { }
+                    System.Diagnostics.Debug.Print("Exception in logReader_Tick: " + ex.ToString());
+                } finally {
+                    IsUpdating = false;
                 }
             }
             IsInitialized = true;
-            IsUpdating = false;
             System.Diagnostics.Debug.Print(DateTime.Now.Subtract(metering).TotalMilliseconds.ToString());
         }
 
@@ -334,6 +356,7 @@ namespace Cyberarms.IntrusionDetection.Admin {
             ShowMenu(labelMenuHome);
             Dashboard.BringToFront();
             panelOnlineServices.Hide();
+            logReader_Tick(this, EventArgs.Empty);
         }
 
 
@@ -356,7 +379,7 @@ namespace Cyberarms.IntrusionDetection.Admin {
             //panelSecurityLog.BringToFront();
             PanelSecurityLog.BringToFront();
             panelOnlineServices.Hide();
-
+            logReader_Tick(this, EventArgs.Empty);
         }
 
         private void labelMenuAgents_Click(object sender, EventArgs e) {
@@ -594,6 +617,7 @@ namespace Cyberarms.IntrusionDetection.Admin {
             //panelCurrentLocks.BringToFront();
             PanelCurrentLocks.BringToFront();
             panelOnlineServices.Hide();
+            logReader_Tick(this, EventArgs.Empty);
         }
 
 

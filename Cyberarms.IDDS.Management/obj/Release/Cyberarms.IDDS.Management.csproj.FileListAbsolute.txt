@@ -1,0 +1,17 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\iddsadmin.exe
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\iddsadmin.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\Cyberarms.IntrusionDetection.Shared.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\Microsoft.CSharp.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\Cyberarms.IntrusionDetection.Shared.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\obj\Release\iddsadmin.exe
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\obj\Release\iddsadmin.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\bin\Release\normnfkd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IDDS.Management\obj\Release\Cyberarms.IDDS.Management.csprojResolveAssemblyReference.cache

@@ -1,0 +1,12 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\obj\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\obj\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\Release\normnfkd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\obj\Release\Cyberarms.IntrusionDetection.Api.csprojResolveAssemblyReference.cache

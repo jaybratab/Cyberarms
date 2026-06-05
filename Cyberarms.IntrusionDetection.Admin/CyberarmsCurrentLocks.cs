@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -96,10 +96,80 @@ namespace Cyberarms.IntrusionDetection.Admin {
             }
         }
 
-       
+        public void UpdateLocksList(List<LockInfo> dbLocks) {
+            bool changed = false;
+            if (dataGridViewLocks.Rows.Count != dbLocks.Count) {
+                changed = true;
+            } else {
+                for (int i = 0; i < dbLocks.Count; i++) {
+                    DataGridViewRow row = dataGridViewLocks.Rows[i];
+                    LockInfo dbLock = dbLocks[i];
+                    if (row.Cells[7].Value == null || row.Cells[7].Value.ToString() != dbLock.Id.ToString()) {
+                        changed = true;
+                        break;
+                    }
+                    if (row.Cells[2].Value == null || row.Cells[2].Value.ToString() != dbLock.StatusName) {
+                        changed = true;
+                        break;
+                    }
+                    if (row.Cells[3].Value == null || row.Cells[3].Value.ToString() != dbLock.ClientIp) {
+                        changed = true;
+                        break;
+                    }
+                    if (row.Cells[8].Value == null || int.Parse(row.Cells[8].Value.ToString()) != dbLock.Status) {
+                        changed = true;
+                        break;
+                    }
+                    if (row.Cells[6].Value == null) {
+                        changed = true;
+                        break;
+                    }
+                    DateTime gridUnlockDate;
+                    if (row.Cells[6].Value is DateTime) {
+                        gridUnlockDate = (DateTime)row.Cells[6].Value;
+                    } else if (!DateTime.TryParse(row.Cells[6].Value.ToString(), out gridUnlockDate)) {
+                        changed = true;
+                        break;
+                    }
+                    if (Math.Abs((gridUnlockDate - dbLock.UnlockDate).TotalSeconds) > 1) {
+                        changed = true;
+                        break;
+                    }
+                }
+            }
 
-       
+            if (changed) {
+                int firstVisibleRowIndex = dataGridViewLocks.FirstDisplayedScrollingRowIndex;
+                dataGridViewLocks.Rows.Clear();
+                foreach (LockInfo dbLock in dbLocks) {
+                    int rowIndex = dataGridViewLocks.Rows.Add();
+                    DataGridViewRow row = dataGridViewLocks.Rows[rowIndex];
+                    row.Cells[0].Value = false;
+                    (row.Cells[1] as DataGridViewImageCell).Value = global::Cyberarms.IntrusionDetection.Admin.Properties.Resources.logIcon_softLock;
+                    row.Cells[2].Value = dbLock.StatusName;
+                    row.Cells[3].Value = dbLock.ClientIp;
+                    row.Cells[4].Value = dbLock.DisplayName;
+                    row.Cells[5].Value = dbLock.LockDate;
+                    row.Cells[6].Value = dbLock.UnlockDate;
+                    row.Cells[7].Value = dbLock.Id.ToString();
+                    row.Cells[8].Value = dbLock.Status;
+                }
+                if (firstVisibleRowIndex >= 0 && firstVisibleRowIndex < dataGridViewLocks.Rows.Count) {
+                    try {
+                        dataGridViewLocks.FirstDisplayedScrollingRowIndex = firstVisibleRowIndex;
+                    } catch { }
+                }
+            }
+        }
+    }
 
-       
+    public class LockInfo {
+        public int Id { get; set; }
+        public string StatusName { get; set; }
+        public string ClientIp { get; set; }
+        public string DisplayName { get; set; }
+        public DateTime LockDate { get; set; }
+        public DateTime UnlockDate { get; set; }
+        public int Status { get; set; }
     }
 }

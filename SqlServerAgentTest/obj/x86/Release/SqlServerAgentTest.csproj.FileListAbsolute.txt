@@ -1,0 +1,10 @@
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\SqlServerAgentTest.exe
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\SqlServerAgentTest.pdb
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\Cyberarms.Agents.SqlServer.dll
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\Cyberarms.Agents.SqlServer.pdb
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\obj\x86\Release\SqlServerAgentTest.exe
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\obj\x86\Release\SqlServerAgentTest.pdb
+C:\Cyberarms\Cyberarms-master\SqlServerAgentTest\obj\x86\Release\SqlServerAgentTest.csprojResolveAssemblyReference.cache

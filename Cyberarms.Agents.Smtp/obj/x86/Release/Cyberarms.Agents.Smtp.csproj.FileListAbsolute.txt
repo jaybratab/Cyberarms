@@ -1,0 +1,9 @@
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\bin\x86\Release\Cyberarms.Agents.Smtp.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\bin\x86\Release\Cyberarms.Agents.Smtp.pdb
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\bin\x86\Release\Cyberarms.IntrusionDetection.Api.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\bin\x86\Release\Cyberarms.IntrusionDetection.Api.pdb
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\obj\x86\Release\Cyberarms.Agents.Smtp.csprojResolveAssemblyReference.cache
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\obj\x86\Release\Cyberarms.Agents.Smtp.Resource.resources
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\obj\x86\Release\Cyberarms.Agents.Smtp.csproj.GenerateResource.Cache
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\obj\x86\Release\Cyberarms.Agents.Smtp.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Smtp\obj\x86\Release\Cyberarms.Agents.Smtp.pdb

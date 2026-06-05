@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -341,7 +341,7 @@ namespace Cyberarms.IntrusionDetection
                 WindowsLogManager.Instance.WriteEntry("Intrusion Detection Service had an error:" + ex.Message, EventLogEntryType.Error,
                       Globals.CYBERARMS_EVENT_ID_CONFIGURATION_ERROR, Globals.CYBERARMS_LOG_CATEGORY_RUNTIME);
             }
-            WindowsLogManager.Instance.WriteEntry(String.Format("{0} lock: Unsuccessful login attempts from ip address {1} exceeded threshold. Firewall rule is being created to block the address specified.",
+            WindowsLogManager.Instance.WriteEntry(String.Format("{0} lock: Unsuccessful login attempts from ip address {1} exceeded threshold. Null route is being created to block the address specified.",
                 lockType == LockType.HardLock ? "Hard" : "Soft", lockItem.IpAddress), EventLogEntryType.FailureAudit, Globals.CYBERARMS_EVENT_ID_FIREWALL_RULE_CREATED,
                         Globals.CYBERARMS_LOG_CATEGORY_SECURITY);
             // lockItem.Id = Locks.CreateLock(lockItem);
@@ -396,7 +396,7 @@ namespace Cyberarms.IntrusionDetection
             try
             {
                 if (!isInitialized) Init();
-                // FirewallPolicyManager.Instance.CleanUpRules();
+                FirewallPolicyManager.Instance.RestoreActiveBans();
                 InitAgentConfiguration();
                 LoadAgents();
                 SecurityAgents.Instance.StartAgents();

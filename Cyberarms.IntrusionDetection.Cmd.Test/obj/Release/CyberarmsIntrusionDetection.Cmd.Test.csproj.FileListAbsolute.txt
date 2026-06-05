@@ -1,0 +1,1 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Cmd.Test\obj\Release\CyberarmsIntrusionDetection.Cmd.Test.csprojResolveAssemblyReference.cache

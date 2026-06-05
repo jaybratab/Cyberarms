@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cyberarms.IntrusionDetection.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase">
+            <summary>
+            This class can be used as base class for custom configuration.
+            Using this base class,Intrusion Detectionautomatically loads and saves configuration values needed by your plugin.
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration">
+            <summary>
+            This interface provídes any property needed forIntrusion Detectionto load and save configuration values for your agent plugin.
+            It is used byIntrusion Detectioninternally, as agent developer, you don't have to care about this interface
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.GetConfigurationType">
+            <summary>
+            Returns the configuration type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.CloneFrom(Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration)">
+            <summary>
+            Used to clone objects
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.AssemblyName">
+            <summary>
+            The name of your assembly, this property is used byIntrusion Detectionand is set automatically when adding your plugin toIntrusion Detectionplugins
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.AgentName">
+            <summary>
+            The name of your agent, used by Intrusion Detection
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.Enabled">
+            <summary>
+            Is used to check if the agent should be loaded by IntrusionDetection. This value is set by theIntrusion Detectionadministration software
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.AgentSettings">
+            <summary>
+            Agent settings containing your custom settings
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.ConfigurationSettingsTypeName">
+            <summary>
+            String value of your custom configuration settings type. 
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.SoftLockAttempts">
+            <summary>
+            Override value for soft lock attempts
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.HardLockAttempts">
+            <summary>
+            Override of hard lock attempts
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.SoftLockDurationMins">
+            <summary>
+            Override of soft lock duration
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.HardLockDurationHrs">
+            <summary>
+            Override of hard lock duration
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.NeverUnlock">
+            <summary>
+            Override of hard lock setting to never unlock an attacker's IP address
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration.OverwriteConfiguration">
+            <summary>
+            ConfigureIntrusion Detectionto use custom settings for this agent
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.CloneFrom(Cyberarms.IntrusionDetection.Api.Plugin.IAgentConfiguration)">
+            <summary>
+            Used to clone objects
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.GetConfigurationType">
+            <summary>
+            Returns the type of custom configuration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.AssemblyName">
+            <summary>
+            The name of your assembly, this property is used byIntrusion Detectionand is set automatically when adding your plugin toIntrusion Detectionplugins
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.AgentName">
+            <summary>
+            The name of your agent, used by Intrusion Detection
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.Enabled">
+            <summary>
+            Is used to check if the agent should be loaded by IntrusionDetection. This value is set by theIntrusion Detectionadministration software
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.AgentSettings">
+            <summary>
+            Agent settings containing your custom settings. This must be marked with the System.Xml.Serialization.XmlIgnore() attribute,
+            and the property must ensure to return the right configuration for the plugin.
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.ConfigurationSettingsTypeName">
+            <summary>
+            String value of your custom configuration settings type. 
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.PluginConfigurationXml">
+            <summary>
+            Returns the configuration type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.HardLockDurationHrs">
+            <summary>
+            Override of hard lock duration
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.HardLockAttempts">
+            <summary>
+            Override of hard lock attempts
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.SoftLockDurationMins">
+            <summary>
+            Override of soft lock duration
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.SoftLockAttempts">
+            <summary>
+            Override value for soft lock attempts
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.OverwriteConfiguration">
+            <summary>
+            ConfigureIntrusion Detectionto use custom settings for this agent
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.NeverUnlock">
+            <summary>
+            Override of hard lock setting to never unlock an attacker's IP address
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentConfigurationBase.FileName">
+            <summary>
+            The filename of an agent
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin">
+            <summary>
+            Base class for agents
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin">
+            <summary>
+            Interface for agents, must be implemented to create aIntrusion Detectionagent
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.Start">
+            <summary>
+            Agent start command, is called when the service starts
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.Stop">
+            <summary>
+            Agent stop command, is called when the service stops
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.Pause">
+            <summary>
+            Agent pause command, is called when the service is paused
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.Continue">
+            <summary>
+            Agent continue command to resume from pause
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.CanPause">
+            <summary>
+            Returns if the agent supports pause
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.CanContinue">
+            <summary>
+            Returns if the agent can be continued at this time
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.AttackDetected">
+            <summary>
+            The AttackDetected Event, using AttackDetectedHandler
+            </summary>
+            <seealso cref="T:Cyberarms.IntrusionDetection.Api.Plugin.AttackDetectedHandler"/>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.IsPaused">
+            <summary>
+            Returns if the agent is in paused state
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.IsRunning">
+            <summary>
+            Returns if the agent is in the running state
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.IAgentPlugin.Configuration">
+            <summary>
+            Agent configuration, usually AgentConfigurationBase, which can be used by the administration program by default without any alteration
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.#ctor">
+            <summary>
+            Initialize the agent
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.OnAttackDetected(System.Object,Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs)">
+            <summary>
+            Is used to invoke all event listener delegates
+            </summary>
+            <param name="sender">The agent itself</param>
+            <param name="data">Notification arguments</param>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.Start">
+            <summary>
+            Agent start command, is called when the service starts
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.Stop">
+            <summary>
+            Agent stop command, is called when the service stops
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.Pause">
+            <summary>
+            Agent pause command, is called when the service is paused
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.Continue">
+            <summary>
+            Agent continue command to resume from pause
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.CanPause">
+            <summary>
+            Returns if the agent supports pause
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.CanContinue">
+            <summary>
+            Returns if the agent can be continued at this time
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.OnStartAgent">
+            <summary>
+            Override this method to do anything required to start your agent
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.OnPauseAgent">
+            <summary>
+            Override this method to do anything required to pause your agent
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.OnStopAgent">
+            <summary>
+            Override this method to stop your agent
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.OnContinueAgent">
+            <summary>
+            Override this method to continue your agent from the paused state
+            </summary>
+        </member>
+        <member name="E:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.AttackDetected">
+            <summary>
+            The AttackDetected Event, using AttackDetectedHandler
+            </summary>
+            <seealso cref="T:Cyberarms.IntrusionDetection.Api.Plugin.AttackDetectedHandler"/>                
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.IsPaused">
+            <summary>
+            Returns if the agent is in paused state
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.IsRunning">
+            <summary>
+            Returns if the agent is in the running state
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.AgentPlugin.Configuration">
+            <summary>
+            Agent configuration, usually AgentConfigurationBase, which can be used by the administration program by default without any alteration
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.INotificationListener">
+            <summary>
+            NotificationReceiver
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.INotificationListener.NotificationReceiver(Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs)">
+             <summary>
+            Intrusion Detectioncalls the NotificationReceiver to forward notification event data 
+             </summary>
+             <param name="args"></param>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.Names">
+            <summary>
+            Internal class needed for naming
+            </summary>
+        </member>
+        <member name="F:Cyberarms.IntrusionDetection.Api.Plugin.Names.pluginTypeNames">
+            <summary>
+            Returns display names 
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute">
+            <summary>
+            Custom attribute for plugins to specify displayname and description. 
+            TheIntrusion Detectionadministration software displays the values defined as class attribute
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            This attribute is displayed in theIntrusion Detectionadministration software
+            </summary>
+            <param name="displayName">Name to display in the administration software</param>
+            <param name="description">Short description of the agent</param>
+            <param name="version">Version number of the agent</param>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute.#ctor(System.String,System.String)">
+            <summary>
+            This attribute is displayed in theIntrusion Detectionadministration software
+            </summary>
+            <param name="displayName">Name to display in the administration software</param>
+            <param name="description">Short description of the agent</param>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute.#ctor(System.String)">
+            <summary>
+            This attribute is displayed in theIntrusion Detectionadministration software
+            </summary>
+            <param name="displayName">Name to display in the administration software</param>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute.DisplayName">
+            <summary>
+            Display name of your agent
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute.Description">
+            <summary>
+            Add a short description about what your agent does
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.PluginAttribute.Version">
+            <summary>
+            Version number of your agent
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.PluginTypes">
+            <summary>
+            Plugin types
+            </summary>
+        </member>
+        <member name="F:Cyberarms.IntrusionDetection.Api.Plugin.PluginTypes.Agent">
+            <summary>
+            Type is agent
+            </summary>
+        </member>
+        <member name="F:Cyberarms.IntrusionDetection.Api.Plugin.PluginTypes.NotificationListener">
+            <summary>
+            Type is Listener
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.AttackDetectedHandler">
+            <summary>
+            Event handler for sending intrusion attempts to theIntrusion DetectionService
+            </summary>
+            <param name="sender">The agent itself</param>
+            <param name="data">Intrusion notification details</param>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs">
+            <summary>
+            Notification arguments containing attacker information
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs.IpAddress">
+            <summary>
+            IP address of the attacker. This can be in TCP/IP version 4 (123.123.123.123 format, dotted notation) or TCP/IP version 6 (abab:abab::1234:abcd format, 128 bits)
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs.CreateDate">
+            <summary>
+            Notification date
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs.EventId">
+            <summary>
+            Event id, for internal purposes. You can include an own Id of forward a log event id
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.INotificationEventArgs.EventMessage">
+            <summary>
+            Optionally include a message to an event listener. 
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.NotificationEventArgs">
+            <summary>
+            Base class for notification arguments containing attacker information
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.NotificationEventArgs.IpAddress">
+            <summary>
+            IP address of the attacker. This can be in TCP/IP version 4 (123.123.123.123 format, dotted notation) or TCP/IP version 6 (abab:abab::1234:abcd format, 128 bits)
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.NotificationEventArgs.CreateDate">
+            <summary>
+            Notification date
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.NotificationEventArgs.EventId">
+            <summary>
+            Event id, for internal purposes. You can include an own Id of forward a log event id
+            </summary>
+        </member>
+        <member name="P:Cyberarms.IntrusionDetection.Api.Plugin.NotificationEventArgs.EventMessage">
+            <summary>
+            Optionally include a message to an event listener. 
+            </summary>
+        </member>
+        <member name="T:Cyberarms.IntrusionDetection.Api.Plugin.PluginConfiguration">
+            <summary>
+            Base class for plugin configuration settings
+            </summary>
+        </member>
+        <member name="M:Cyberarms.IntrusionDetection.Api.Plugin.PluginConfiguration.CloneFrom(Cyberarms.IntrusionDetection.Api.Plugin.PluginConfiguration)">
+            <summary>
+            Clone from another PluginConfiguration of the same type
+            </summary>
+            <param name="source"></param>
+        </member>
+    </members>
+</doc>

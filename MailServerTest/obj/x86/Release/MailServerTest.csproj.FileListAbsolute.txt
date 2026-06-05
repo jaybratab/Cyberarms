@@ -1,0 +1,10 @@
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\MailServerTest.exe
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\MailServerTest.pdb
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\Cyberarms.Agents.MailServer.dll
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\Cyberarms.Agents.MailServer.pdb
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\MailServerTest\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\MailServerTest\obj\x86\Release\MailServerTest.exe
+C:\Cyberarms\Cyberarms-master\MailServerTest\obj\x86\Release\MailServerTest.pdb
+C:\Cyberarms\Cyberarms-master\MailServerTest\obj\x86\Release\MailServerTest.csprojResolveAssemblyReference.cache

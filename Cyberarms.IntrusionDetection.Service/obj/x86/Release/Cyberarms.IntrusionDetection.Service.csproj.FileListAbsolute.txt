@@ -1,0 +1,13 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\obj\x86\Release\Cyberarms.IntrusionDetection.Service.csprojResolveAssemblyReference.cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\CyberarmsIdsService.exe.config
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\CyberarmsIdsService.exe
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\CyberarmsIdsService.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\Cyberarms.IntrusionDetection.Shared.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\bin\Release\Cyberarms.IntrusionDetection.Shared.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\obj\x86\Release\Cyberarms.IntrusionDetection.Service.resources
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\obj\x86\Release\Cyberarms.IntrusionDetection.ProjectInstaller.resources
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\obj\x86\Release\Cyberarms.IntrusionDetection.Service.csproj.GenerateResource.Cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\obj\x86\Release\CyberarmsIdsService.exe
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service\obj\x86\Release\CyberarmsIdsService.pdb

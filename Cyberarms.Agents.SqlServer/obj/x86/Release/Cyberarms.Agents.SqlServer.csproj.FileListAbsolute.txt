@@ -1,0 +1,9 @@
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\bin\x86\Release\Cyberarms.Agents.SqlServer.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\bin\x86\Release\Cyberarms.Agents.SqlServer.pdb
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\bin\x86\Release\Cyberarms.IntrusionDetection.Api.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\bin\x86\Release\Cyberarms.IntrusionDetection.Api.pdb
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\obj\x86\Release\Cyberarms.Agents.SqlServer.csprojResolveAssemblyReference.cache
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\obj\x86\Release\Cyberarms.Agents.SqlServer.Resource.resources
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\obj\x86\Release\Cyberarms.Agents.SqlServer.csproj.GenerateResource.Cache
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\obj\x86\Release\Cyberarms.Agents.SqlServer.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.Agents.SqlServer\obj\x86\Release\Cyberarms.Agents.SqlServer.pdb

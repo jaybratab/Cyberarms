@@ -1,0 +1,3 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MailServer.Test\obj\Release\Cyberarms.Agents.MailServer.Test.csproj.AssemblyReference.cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MailServer.Test\obj\Release\Cyberarms.Agents.MailServer.Test.csproj.CoreCompileInputs.cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.MailServer.Test\obj\Release\Cyberarms.Agents.MailServer.Test.csprojResolveAssemblyReference.cache

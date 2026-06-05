@@ -1,0 +1,10 @@
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\TlsSslTest.exe
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\TlsSslTest.pdb
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\Cyberarms.Agents.TerminalServer.dll
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\Cyberarms.Agents.TerminalServer.pdb
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\TlsSslTest\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\TlsSslTest\obj\x86\Release\TlsSslTest.exe
+C:\Cyberarms\Cyberarms-master\TlsSslTest\obj\x86\Release\TlsSslTest.pdb
+C:\Cyberarms\Cyberarms-master\TlsSslTest\obj\x86\Release\TlsSslTest.csprojResolveAssemblyReference.cache

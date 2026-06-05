@@ -1,0 +1,4 @@
+C:\Cyberarms\Cyberarms-master\EventLogCleaner\bin\Release\EventLogCleaner.exe
+C:\Cyberarms\Cyberarms-master\EventLogCleaner\bin\Release\EventLogCleaner.pdb
+C:\Cyberarms\Cyberarms-master\EventLogCleaner\obj\x86\Release\EventLogCleaner.exe
+C:\Cyberarms\Cyberarms-master\EventLogCleaner\obj\x86\Release\EventLogCleaner.pdb

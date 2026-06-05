@@ -1,0 +1,11 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\Cyberarms.WebSecurity.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\Cyberarms.WebSecurity.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\obj\Release\Cyberarms.WebSecurity.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\obj\Release\Cyberarms.WebSecurity.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\bin\Release\normnfkd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.WebSecurity\obj\Release\Cyberarms.WebSecurity.csprojResolveAssemblyReference.cache

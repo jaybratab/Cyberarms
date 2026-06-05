@@ -1,0 +1,5 @@
+c:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\x86\Release\Cyberarms.IntrusionDetection.Api.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\bin\x86\Release\Cyberarms.IntrusionDetection.Api.pdb
+c:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\obj\x86\Release\Cyberarms.IntrusionDetection.Api.csprojResolveAssemblyReference.cache
+c:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\obj\x86\Release\Cyberarms.IntrusionDetection.Api.dll
+c:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Api\obj\x86\Release\Cyberarms.IntrusionDetection.Api.pdb

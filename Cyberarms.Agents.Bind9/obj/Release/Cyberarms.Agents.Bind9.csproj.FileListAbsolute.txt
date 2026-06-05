@@ -1,0 +1,10 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\Cyberarms.Agents.Bind9.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\Cyberarms.Agents.Bind9.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\obj\Release\Cyberarms.Agents.Bind9.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\obj\Release\Cyberarms.Agents.Bind9.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.Bind9\bin\Release\normnfkd.nlp

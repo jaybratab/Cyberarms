@@ -1,0 +1,6 @@
+c:\Cyberarms\Cyberarms-master\DemoAgent\bin\x86\Release\DemoAgent.dll
+c:\Cyberarms\Cyberarms-master\DemoAgent\bin\x86\Release\DemoAgent.pdb
+c:\Cyberarms\Cyberarms-master\DemoAgent\bin\x86\Release\Cyberarms.IntrusionDetection.Api.dll
+c:\Cyberarms\Cyberarms-master\DemoAgent\bin\x86\Release\Cyberarms.IntrusionDetection.Api.pdb
+c:\Cyberarms\Cyberarms-master\DemoAgent\obj\x86\Release\DemoAgent.dll
+c:\Cyberarms\Cyberarms-master\DemoAgent\obj\x86\Release\DemoAgent.pdb

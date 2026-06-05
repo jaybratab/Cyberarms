@@ -1,0 +1,16 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\Cyberarms.IntrusionDetection.Shared.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\Cyberarms.IntrusionDetection.Shared.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\obj\Release\Cyberarms.IntrusionDetection.Shared.Resources.resources
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\obj\Release\Cyberarms.IntrusionDetection.Shared.csproj.GenerateResource.Cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\obj\Release\Cyberarms.IntrusionDetection.Shared.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\obj\Release\Cyberarms.IntrusionDetection.Shared.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\bin\Release\normnfkd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Shared\obj\Release\Cyberarms.IntrusionDetection.Shared.csprojResolveAssemblyReference.cache

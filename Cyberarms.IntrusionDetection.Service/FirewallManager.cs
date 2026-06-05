@@ -1,38 +1,33 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NATUPNPLib;
-using NETCONLib;
-using NetFwTypeLib;
-
 
 namespace Cyberarms.IntrusionDetection {
     internal class FirewallManager {
         private static FirewallManager _instance;
-        private INetFwMgr firewallManager; 
+        private dynamic firewallManager; 
         internal static FirewallManager Instance {
             get {
                 if (_instance == null) {
                     _instance = new FirewallManager();
                 }
                 return _instance;
-
             }
         }
 
         private FirewallManager() {
-            firewallManager = (INetFwMgr)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwMgr"));
+            Type t = Type.GetTypeFromProgID("HNetCfg.FwMgr");
+            firewallManager = Activator.CreateInstance(t);
         }
 
         internal void AddPort(string strName,
                                    int Port,
-                                   NetFwTypeLib.NET_FW_SCOPE_ Scope,
-                                   NetFwTypeLib.NET_FW_IP_PROTOCOL_ Protocol, 
+                                   int Scope,
+                                   int Protocol, 
                                    string remoteAddresses) {
-            INetFwOpenPort fireWallPort =
-                          (INetFwOpenPort)Activator.CreateInstance(
-                               Type.GetTypeFromProgID("HNetCfg.FWOpenPort"));
+            Type t = Type.GetTypeFromProgID("HNetCfg.FWOpenPort");
+            dynamic fireWallPort = Activator.CreateInstance(t);
             fireWallPort.RemoteAddresses = remoteAddresses;
             fireWallPort.Enabled = true;
             fireWallPort.Name = strName;
@@ -43,43 +38,37 @@ namespace Cyberarms.IntrusionDetection {
                                        .GloballyOpenPorts.Add(fireWallPort);
         }
 
-        
-
         internal void RemovePort(int Port,
-                                      NetFwTypeLib.NET_FW_IP_PROTOCOL_ Protocol) {
+                                      int Protocol) {
             firewallManager.LocalPolicy.CurrentProfile
                .GloballyOpenPorts.Remove(Port, Protocol);
         }
 
         internal void AddAuthorizedApplication(string strName,
                                                 string processImageFileName,
-                                                NetFwTypeLib.NET_FW_SCOPE_ Scope) {
-            INetFwAuthorizedApplication authorizedApplication
-                  = (INetFwAuthorizedApplication)Activator
-                          .CreateInstance(Type.GetTypeFromProgID(
-                                    "HNetCfg.FwAuthorizedApplication"));
+                                                int Scope) {
+            Type t = Type.GetTypeFromProgID("HNetCfg.FwAuthorizedApplication");
+            dynamic authorizedApplication = Activator.CreateInstance(t);
             authorizedApplication.Name = strName;
             authorizedApplication.Scope = Scope;
             authorizedApplication.Enabled = true;
             authorizedApplication.ProcessImageFileName = processImageFileName;
             firewallManager.LocalPolicy.CurrentProfile
-                           .AuthorizedApplications.Add(authorizedApplication);
+                            .AuthorizedApplications.Add(authorizedApplication);
         }
 
         internal void RemoveAuthorizedApplication(string processFileName) {
             firewallManager.LocalPolicy.CurrentProfile
-                           .AuthorizedApplications.Remove(processFileName);
+                            .AuthorizedApplications.Remove(processFileName);
         }
 
-        internal INetFwOpenPort ReadPort(string name) {
-            INetFwOpenPorts ports = firewallManager.LocalPolicy.CurrentProfile.GloballyOpenPorts;
-            foreach (INetFwOpenPort port in ports) {
+        internal dynamic ReadPort(string name) {
+            dynamic ports = firewallManager.LocalPolicy.CurrentProfile.GloballyOpenPorts;
+            foreach (dynamic port in ports) {
                 System.Diagnostics.Debug.Print(port.Name);
                 if (port.Name == name) return port;
             }
             return null;
-
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
@@ -26,7 +26,7 @@ namespace Cyberarms.IntrusionDetection.Shared {
             connBuilder.ForeignKeys = true;
             connBuilder.JournalMode = SQLiteJournalModeEnum.Truncate;
             connBuilder.Password = "hasdvfdfaxNm.DFd3djkn2li9fu24$";
-            connBuilder.Pooling = true;
+            connBuilder.Pooling = false;
             connBuilder.ReadOnly = false;
             connBuilder.SyncMode = SynchronizationModes.Normal;
             connBuilder.DataSource = directory + "\\cyberarms.idds.dbf";
@@ -55,7 +55,7 @@ namespace Cyberarms.IntrusionDetection.Shared {
         public SQLiteConnection Connection {
             get {
                 if (_connection == null) throw new ApplicationException("Sorry, cannot return requested connection object. Please run Configure first to set database path.");
-                if (_connection.State == System.Data.ConnectionState.Broken) {
+                if (_connection.State == System.Data.ConnectionState.Closed || _connection.State == System.Data.ConnectionState.Broken) {
                     _connection.Open();
                 }
                 // open new connection;
@@ -84,22 +84,65 @@ namespace Cyberarms.IntrusionDetection.Shared {
         }
 
         public IDataReader ExecuteReader(string sqlString, IDbTransaction transaction, params object[] parameters) {
-            IDbCommand cmd = PrepareCommand(sqlString, parameters);
-            IDataReader rdr = null;
-            if (transaction != null) cmd.Transaction = transaction;
-            try {
-                rdr = cmd.ExecuteReader();
-            } catch (Exception ex) {
-                for (int i = 0; i < 5; i++) {
-                    System.Threading.Thread.Sleep(500);
-                    try {
-                        rdr = cmd.ExecuteReader();
-                        return rdr;
-                    } catch { }
+            using (IDbCommand cmd = PrepareCommand(sqlString, parameters)) {
+                if (transaction != null) cmd.Transaction = transaction;
+                try {
+                    using (IDataReader rdr = cmd.ExecuteReader()) {
+                        DataTable dt = new DataTable();
+                        for (int i = 0; i < rdr.FieldCount; i++) {
+                            dt.Columns.Add(rdr.GetName(i), typeof(object));
+                        }
+                        while (rdr.Read()) {
+                            DataRow row = dt.NewRow();
+                            for (int i = 0; i < rdr.FieldCount; i++) {
+                                try {
+                                    row[i] = rdr.GetValue(i);
+                                } catch {
+                                    try {
+                                        row[i] = rdr.GetString(i);
+                                    } catch {
+                                        row[i] = DBNull.Value;
+                                    }
+                                }
+                            }
+                            dt.Rows.Add(row);
+                        }
+                        return dt.CreateDataReader();
+                    }
+                } catch (Exception ex) {
+                    for (int i = 0; i < 5; i++) {
+                        System.Threading.Thread.Sleep(500);
+                        try {
+                            using (IDbCommand cmdRetry = PrepareCommand(sqlString, parameters)) {
+                                if (transaction != null) cmdRetry.Transaction = transaction;
+                                using (IDataReader rdr = cmdRetry.ExecuteReader()) {
+                                    DataTable dt = new DataTable();
+                                    for (int j = 0; j < rdr.FieldCount; j++) {
+                                        dt.Columns.Add(rdr.GetName(j), typeof(object));
+                                    }
+                                    while (rdr.Read()) {
+                                        DataRow row = dt.NewRow();
+                                        for (int j = 0; j < rdr.FieldCount; j++) {
+                                            try {
+                                                row[j] = rdr.GetValue(j);
+                                            } catch {
+                                                try {
+                                                    row[j] = rdr.GetString(j);
+                                                } catch {
+                                                    row[j] = DBNull.Value;
+                                                }
+                                            }
+                                        }
+                                        dt.Rows.Add(row);
+                                    }
+                                    return dt.CreateDataReader();
+                                }
+                            }
+                        } catch { }
+                    }
+                    throw ex;
                 }
-                throw ex;
             }
-            return rdr;
         }
 
         public void ExecuteNonQuery(string sqlString, params object[] parameters) {
@@ -107,31 +150,33 @@ namespace Cyberarms.IntrusionDetection.Shared {
         }
 
         public void ExecuteNonQuery(string sqlString, IDbTransaction transaction, params object[] parameters) {
-            IDbCommand cmd = PrepareCommand(sqlString, parameters);
-            try {
-                if (transaction != null) cmd.Transaction = transaction;
-                cmd.ExecuteNonQuery();
-            } catch (Exception ex) {
-                // try to recover
+            using (IDbCommand cmd = PrepareCommand(sqlString, parameters)) {
                 try {
-                    IDbConnection conn = (IDbConnection)Connection.Clone();
-                    if (conn.State != ConnectionState.Open) conn.Open();
-                    cmd.Connection = conn;
+                    if (transaction != null) cmd.Transaction = transaction;
+                    cmd.ExecuteNonQuery();
+                } catch (Exception ex) {
+                    // try to recover
                     try {
-                        cmd.ExecuteNonQuery();
-                    } catch (Exception ex2) {
-                        for (int i = 0; i < 5; i++) {
-                            System.Threading.Thread.Sleep(500);
+                        using (IDbConnection conn = (IDbConnection)Connection.Clone()) {
+                            if (conn.State != ConnectionState.Open) conn.Open();
+                            cmd.Connection = conn;
                             try {
                                 cmd.ExecuteNonQuery();
-                                return;
-                            } catch { }
+                            } catch (Exception ex2) {
+                                for (int i = 0; i < 5; i++) {
+                                    System.Threading.Thread.Sleep(500);
+                                    try {
+                                        cmd.ExecuteNonQuery();
+                                        return;
+                                    } catch { }
+                                }
+                                throw ex2;
+                            }
+                            conn.Close();
                         }
-                        throw ex2;
+                    } catch (Exception ex1) {
+                        throw ex1;
                     }
-                    conn.Close();
-                } catch (Exception ex1) {
-                    throw ex1;
                 }
             }
         }
@@ -158,21 +203,22 @@ namespace Cyberarms.IntrusionDetection.Shared {
 
         public object ExecuteScalar(string sqlString, IDbTransaction transaction, params object[] parameters) {
             object result = null;
-            IDbCommand cmd = PrepareCommand(sqlString, parameters);
-            if (transaction != null) cmd.Transaction = transaction;
-            
-            try {
-                result = cmd.ExecuteScalar();
-            } catch (Exception ex) {
-                for (int i = 0; i < 5; i++) {
-                    // can we recover the problem within a timeout period?
-                    System.Threading.Thread.Sleep(500);
-                    try {
-                        result = cmd.ExecuteScalar();
-                        return result;
-                    } catch { }
+            using (IDbCommand cmd = PrepareCommand(sqlString, parameters)) {
+                if (transaction != null) cmd.Transaction = transaction;
+                
+                try {
+                    result = cmd.ExecuteScalar();
+                } catch (Exception ex) {
+                    for (int i = 0; i < 5; i++) {
+                        // can we recover the problem within a timeout period?
+                        System.Threading.Thread.Sleep(500);
+                        try {
+                            result = cmd.ExecuteScalar();
+                            return result;
+                        } catch { }
+                    }
+                    throw ex;
                 }
-                throw ex;
             }
             return result;
         }
@@ -206,7 +252,17 @@ namespace Cyberarms.IntrusionDetection.Shared {
             }
         }
 
+        public void CloseConnection() {
+            if (_connection != null && _connection.State == ConnectionState.Open) {
+                _connection.Close();
+            }
+        }
 
+        public void OpenConnection() {
+            if (_connection != null) {
+                _connection.Open();
+            }
+        }
 
     }
 }

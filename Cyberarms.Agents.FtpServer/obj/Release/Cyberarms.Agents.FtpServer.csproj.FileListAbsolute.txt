@@ -1,0 +1,15 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\Cyberarms.Agents.FtpServer.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\Cyberarms.Agents.FtpServer.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\Cyberarms.IntrusionDetection.Api.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\Cyberarms.IntrusionDetection.Api.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\Cyberarms.IntrusionDetection.Api.xml
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\obj\Release\Cyberarms.Agents.FtpServer.Resource.resources
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\obj\Release\Cyberarms.Agents.FtpServer.csproj.GenerateResource.Cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\obj\Release\Cyberarms.Agents.FtpServer.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\obj\Release\Cyberarms.Agents.FtpServer.pdb
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\mscorlib.dll
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\normidna.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\normnfc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\normnfd.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\normnfkc.nlp
+C:\Cyberarms\Cyberarms-master\Cyberarms.Agents.FtpServer\bin\Release\normnfkd.nlp

@@ -1,0 +1,3 @@
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service.Test\obj\Release\Cyberarms.IntrusionDetection.Service.Test.csprojResolveAssemblyReference.cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service.Test\obj\Release\Cyberarms.IntrusionDetection.Service.Test.csproj.AssemblyReference.cache
+C:\Cyberarms\Cyberarms-master\Cyberarms.IntrusionDetection.Service.Test\obj\Release\Cyberarms.IntrusionDetection.Service.Test.csproj.CoreCompileInputs.cache
